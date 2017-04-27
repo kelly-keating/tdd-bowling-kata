@@ -1,1 +1,1 @@
-# tdd-bowling-kata
+# tdd-conways-kata
