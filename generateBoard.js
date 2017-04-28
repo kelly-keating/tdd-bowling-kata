@@ -1,12 +1,19 @@
 var clear = require ('clear')
+var displayBoard = require ('./displayBoard')
+var fill = require ('./populateRandomly.js')
 
-function generateBoard(){
+function generateBoard(size){
   //create array of defined size
-  //for each
+  var board = []
+  //for size
+  for(var i = size; i > 0; i--){
+    //create array
+    var row = fill(size)
     //alive/dead using math.random
-  //clear()
-  //display board
-  return [[0,0,0],[0,0,0],[0,0,0]]
+    board.push(row)
+  }
+  // displayBoard(board)
+  return board
 }
 
 module.exports = generateBoard
