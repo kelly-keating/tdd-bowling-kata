@@ -13,7 +13,8 @@
     "clear": "^0.0.1"
   },
   "scripts": {
-    "test": "tape tests/**/*.js | tap-spec"
+    "test": "tape tests/**/*.js | tap-spec",
+    "game": "node runGame.js"
   },
   "repository": {
     "type": "git",
