@@ -6,6 +6,7 @@ function generateBoard(){
     //alive/dead using math.random
   //clear()
   //display board
+  return [[0,0,0],[0,0,0],[0,0,0]]
 }
 
 module.exports = generateBoard

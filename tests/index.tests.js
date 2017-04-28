@@ -21,5 +21,5 @@ test('can generate a board of appropriate size', function(t){
   t.equal(newBoard.length, expected, 'generates a board of expected height')
   t.equal(firstRow.length, expected, 'generates a board of expected width')
   t.true(secondRow.length == expected && thirdRow.length == expected, 'all rows match')
-  t.end
+  t.end()
 })
