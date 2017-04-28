@@ -12,8 +12,10 @@ function generateBoard(size){
     //alive/dead using math.random
     board.push(row)
   }
-  // displayBoard(board)
+  displayBoard(board)
   return board
 }
+
+generateBoard(4)
 
 module.exports = generateBoard
