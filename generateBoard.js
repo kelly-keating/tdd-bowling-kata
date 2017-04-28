@@ -1,5 +1,5 @@
 var clear = require ('clear')
-var displayBoard = require ('./displayBoard')
+var displayBoard = require ('./displayBoard.js')
 var fill = require ('./populateRandomly.js')
 
 function generateBoard(size){
@@ -15,7 +15,5 @@ function generateBoard(size){
   displayBoard(board)
   return board
 }
-
-generateBoard(4)
 
 module.exports = generateBoard
