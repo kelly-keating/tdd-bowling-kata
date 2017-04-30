@@ -9,10 +9,6 @@ function displayBoard(board){
       var line = ""
     //for each in column
     for(var col = 0; col < size; col++){
-    //if true
-      //display this
-    //else
-      //display other
       var isAlive = board[row][col]
       isAlive ? line += "0" : line += "_"
     }

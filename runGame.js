@@ -13,6 +13,6 @@ function runGame(size){
   }, 30000)
 }
 
-runGame(20)
+// runGame(20)
 
 module.exports = runGame
