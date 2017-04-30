@@ -49,3 +49,96 @@ test('can calculate the number of neighbours at an edge correctly', function(t){
   t.equal(calc2, 4, 'can count neighbours of middle right coord')
   t.end()
 })
+
+// 000   000
+// 000   000
+// 000   000
+
+test('can get next for empty board', function(t){
+  var board = [[false,false,false],[false,false,false],[false,false,false]]
+  var expected = [[false,false,false],[false,false,false],[false,false,false]]
+
+  var result = getNext(board)
+
+  t.deepEqual(result, expected, 'can deal with empty board')
+  t.end()
+})
+
+// 111   101   000
+// 111   000   000
+// 111   101   000
+
+test('can get next for full board', function(t){
+  var board = [[true,true,true],[true,true,true],[true,true,true]]
+  var stepExpected = [[true, false, true],[false, false, false],[true, false, true]]
+  var endExpected = [[false,false,false],[false,false,false],[false,false,false]]
+
+  var stepResult = getNext(board)
+  var endResult = getNext(stepResult)
+
+  t.deepEqual(stepResult, stepExpected, 'full board dies a bit')
+  t.deepEqual(endResult, endExpected, 'full becomes empty')
+  t.end()
+})
+
+// 010   010
+// 101   101
+// 010   010
+
+test('can get next for static board', function(t){
+  var board = [[false,true,false],[true,false,true],[false,true,false]]
+  var expected = board
+
+  var result = getNext(board)
+
+  t.deepEqual(result, expected, 'board locked in pattern')
+  t.end()
+})
+
+// 010   010   000
+// 101   010   000
+// 000   000   000
+
+test('can get next for some board', function(t){
+  var board = [[false,true,false],[true,false,true],[false,false,false]]
+  var stepExpected = [[false,true,false],[false,true,false],[false, false, false]]
+  var endExpected = [[false,false,false],[false,false,false],[false,false,false]]
+
+  var stepResult = getNext(board)
+  var endResult = getNext(stepResult)
+
+  t.deepEqual(stepResult, stepExpected, 'board changes some')
+  t.deepEqual(endResult, endExpected, 'all die as result')
+  t.end()
+})
+
+// 010   000   010
+// 010   111   010
+// 010   000   010
+
+test('can get next for spin pattern board', function(t){
+  var board = [[false,true,false],[false,true,false],[false,true,false]]
+  var stepExpected = [[false,false,false],[true,true,true],[false, false, false]]
+  var endExpected = board
+
+  var stepResult = getNext(board)
+  var endResult = getNext(stepResult)
+
+  t.deepEqual(stepResult, stepExpected, 'spins onto side')
+  t.deepEqual(endResult, endExpected, 'returns to orig after spin')
+  t.end()
+})
+
+// 000   000
+// 011   011
+// 011   011
+
+test('can get next for square pattern board', function(t){
+  var board = [[false,false,false],[false,true,true],[false,true,true]]
+  var expected = board
+
+  var result = getNext(board)
+
+  t.deepEqual(result, expected, '2x2 square doesn\'t change')
+  t.end()
+})

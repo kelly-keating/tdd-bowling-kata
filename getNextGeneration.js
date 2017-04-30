@@ -17,8 +17,4 @@ function getNextGeneration(board){
   return nextBoard
 }
 
-// function isAlive(num){
-//   if(num > 3 || num < 2) return
-// }
-
 module.exports = getNextGeneration
